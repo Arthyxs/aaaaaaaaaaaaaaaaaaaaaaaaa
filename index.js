@@ -1,6 +1,6 @@
 /*
  * ===================================================================
- * Servidor Backend do Painel de Inteligência Financeira - v2.1 (FIX DE SEGURANÇA)
+ * Servidor Backend do Painel de Inteligência Financeira - v2.2 (FIX DE SEGURANÇA)
  * ===================================================================
  * CORREÇÃO CRÍTICA: A ordem das rotas foi ajustada para garantir
  * que o middleware de autenticação (checkAuth) seja executado ANTES
@@ -23,18 +23,13 @@ app.use(express.json());
 app.use(cookieParser());
 
 // --- Definição da Senha de Administrador ---
-// IMPORTANTE: Mude esta senha para algo seguro!
-const ADMIN_PASSWORD = "satilog";
+const ADMIN_PASSWORD = "sua_senha_secreta";
 
 // --- Middleware de Verificação de Autenticação ---
-// Esta função "guarda" as nossas rotas protegidas.
 const checkAuth = (req, res, next) => {
-    // Se o cookie de sessão não existir ou for inválido...
     if (req.cookies.session_token !== 'logado_com_sucesso') {
-        // ...redireciona imediatamente para a página de login.
         return res.redirect('/login.html');
     }
-    // Se o cookie existir, permite que o pedido continue para a rota protegida.
     next();
 };
 
@@ -46,9 +41,7 @@ app.get('/admin.html', checkAuth, (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'admin.html'));
 });
 
-// SERVIDOR DE FICHEIROS ESTÁTICOS: Serve todos os outros ficheiros (públicos)
-// da pasta 'public'. Como a rota '/admin.html' já foi tratada acima,
-// o servidor não irá servir o ficheiro admin.html diretamente daqui.
+// SERVIDOR DE FICHEIROS ESTÁTICOS: Serve todos os outros ficheiros (públicos) da pasta 'public'.
 app.use(express.static(path.join(__dirname, 'public')));
 
 
