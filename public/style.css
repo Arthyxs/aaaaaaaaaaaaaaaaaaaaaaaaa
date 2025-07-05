@@ -1,34 +1,27 @@
 /*
  * ===================================================================
- * Estilo do Painel de Inteligência Financeira v5.1 - "Corporate Glass"
+ * Estilo do Painel de Inteligência Financeira v5.2 - "Corporate Glass"
  * ===================================================================
- * Design: Foco em legibilidade e fontes adaptáveis para garantir
- * uma experiência de utilizador consistente em todos os ecrãs.
+ * CORREÇÃO: Ajustado o tamanho da fonte dos totais para evitar
+ * quebra de linha em diferentes tamanhos de ecrã.
  * ===================================================================
  */
 
-/* --- Importação de Fonte e Definição da Paleta --- */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 :root {
     --cor-laranja-destaque: #F97316;
     --cor-laranja-hover: #EA580C;
     --gradiente-laranja: linear-gradient(90deg, var(--cor-laranja-destaque) 0%, var(--cor-laranja-hover) 100%);
-
     --cor-fundo-inicio: #111827;
     --cor-fundo-fim: #374151;
-
     --cor-card-fundo: rgba(255, 255, 255, 0.05);
     --cor-card-borda: rgba(255, 255, 255, 0.1);
-
     --cor-texto-principal: #F9FAFB;
-    /* MUDANÇA: Texto secundário mais brilhante para maior contraste */
-    --cor-texto-secundario: #D1D5DB; 
-
+    --cor-texto-secundario: #D1D5DB;
     --sombra-card: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
-/* --- Estilos Globais e Reset --- */
 body {
     font-family: 'Inter', system-ui, sans-serif;
     background-color: var(--cor-fundo-inicio);
@@ -41,7 +34,6 @@ body {
     min-height: 100vh;
 }
 
-/* --- Cabeçalho --- */
 header {
     display: flex;
     justify-content: space-between;
@@ -70,7 +62,6 @@ header .info-header {
     color: var(--cor-texto-secundario);
 }
 
-/* --- Botões --- */
 #admin-login-link {
     padding: 10px 20px;
     font-size: 0.9rem;
@@ -112,7 +103,6 @@ header .info-header {
     display: none;
 }
 
-/* --- Estrutura Principal e Cards "Glassmorphism" --- */
 main {
     display: flex;
     flex-direction: column;
@@ -156,15 +146,14 @@ main {
 }
 
 .card-base p {
-    /* MUDANÇA: Fonte adaptável com valores ajustados */
-    font-size: clamp(1.6rem, 4vw, 2rem);
+    /* MUDANÇA: Fonte adaptável com valores mais conservadores */
+    font-size: clamp(1.5rem, 3.5vw, 1.8rem);
     font-weight: 700;
     color: var(--cor-texto-principal);
     margin: 0;
-    overflow-wrap: break-word; /* Quebra a linha de forma mais inteligente */
+    white-space: nowrap; /* Impede a quebra de linha */
 }
 
-/* --- Seção de Detalhes --- */
 .detalhes {
     display: flex;
     flex-wrap: wrap;
@@ -187,12 +176,12 @@ main {
 }
 
 .total-geral p {
-    /* MUDANÇA: Fonte adaptável com valores ajustados */
-    font-size: clamp(2rem, 5vw, 2.75rem);
+    /* MUDANÇA: Fonte adaptável com valores mais conservadores */
+    font-size: clamp(2rem, 4vw, 2.5rem);
     font-weight: 700;
     color: var(--cor-texto-principal);
     margin-bottom: 20px;
-    overflow-wrap: break-word; /* Quebra a linha de forma mais inteligente */
+    white-space: nowrap; /* Impede a quebra de linha */
 }
 
 .chart-container {
@@ -215,7 +204,6 @@ main {
     color: var(--cor-texto-principal);
 }
 
-/* --- Layout dos Cards de Natureza --- */
 #lista-natureza {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -264,7 +252,6 @@ main {
     transition: width 0.5s ease-out;
 }
 
-/* --- Seção de Avisos --- */
 .avisos {
     background: rgba(249, 115, 22, 0.1);
     border-top: 4px solid var(--cor-laranja-destaque);
@@ -283,7 +270,6 @@ main {
     border-bottom: 1px solid var(--cor-card-borda);
 }
 
-/* --- Regras de Interatividade --- */
 #main-container.filtered-view #total-geral-card {
     display: none;
 }
