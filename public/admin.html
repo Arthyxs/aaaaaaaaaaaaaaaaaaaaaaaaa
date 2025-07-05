@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Atualizar Dados</title>
+    <!-- Reutiliza a mesma folha de estilos -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color: var(--cor-fundo-escuro);">
+
+    <!-- Card principal da página de admin -->
+    <div class="card" style="margin: 50px auto; max-width: 600px;">
+        <h2>Atualizar Arquivo de Dados (CSV)</h2>
+        <p style="color: var(--cor-texto-secundario-escuro);">Selecione o novo arquivo CSV para atualizar o painel. O arquivo antigo será automaticamente substituído.</p>
+        
+        <!-- Formulário de upload -->
+        <form id="upload-form">
+            <input type="file" id="csv-file" name="csvfile" accept=".csv" required style="margin-bottom: 20px; color: var(--cor-texto-escuro);">
+            <button type="submit" id="upload-button" style="padding: 12px; font-size: 1rem; font-weight: 600; color: var(--cor-card-claro); background: var(--gradiente-laranja); border: none; border-radius: 8px; cursor: pointer;">Enviar Novo Arquivo</button>
+        </form>
+        
+        <!-- Mensagem de status para o upload -->
+        <p id="upload-status" style="margin-top: 15px; font-weight: bold;"></p>
+        
+        <!-- Links de navegação -->
+        <a href="/" style="display: block; margin-top: 20px; color: var(--cor-laranja-vibrante);">Ver Painel Principal</a>
+        <button id="logout-button" style="margin-top: 15px; padding: 8px 16px; background: none; border: 1px solid var(--cor-borda-sutil); color: var(--cor-texto-secundario-escuro); border-radius: 6px; cursor: pointer;">Sair (Logout)</button>
+    </div>
+
+    <!-- Script que controla a lógica desta página -->
+    <script src="admin.js"></script>
+</body>
+</html>

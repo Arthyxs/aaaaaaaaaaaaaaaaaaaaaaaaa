@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Painel Financeiro</title>
+    <!-- Reutiliza a mesma folha de estilos para manter a consistência visual -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+
+    <!-- Card de login centralizado -->
+    <div class="card" style="width: 100%; max-width: 400px;">
+        <h2 style="text-align: center; color: var(--cor-texto-escuro);">Acesso Restrito</h2>
+        <form id="login-form">
+            <div style="margin-bottom: 15px;">
+                <label for="password" style="display: block; margin-bottom: 5px; color: var(--cor-texto-secundario-escuro);">Senha de Acesso</label>
+                <input type="password" id="password" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--cor-borda-sutil); background-color: #f8f9fa; font-size: 1rem;">
+            </div>
+            <button type="submit" id="login-button" style="width: 100%; padding: 12px; font-size: 1rem; font-weight: 600; color: var(--cor-card-claro); background: var(--gradiente-laranja); border: none; border-radius: 8px; cursor: pointer;">Entrar</button>
+            <!-- Mensagem de erro que aparece se o login falhar -->
+            <p id="error-message" style="color: #dc3545; text-align: center; margin-top: 15px; display: none;"></p>
+        </form>
+    </div>
+
+    <!-- Script que controlará a lógica de autenticação desta página -->
+    <script src="login.js"></script>
+</body>
+</html>
